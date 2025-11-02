@@ -1,0 +1,392 @@
+/* دليل فعاليات المدينة - ملف الأنماط الرئيسي */
+
+/* الألوان الرئيسية */
+:root {
+    --primary-color: #0d6efd;
+    --primary-dark: #0b5ed7;
+    --primary-light: #cfe2ff;
+    --secondary-color: #6c757d;
+    --secondary-dark: #565e64;
+    --success-color: #198754;
+    --success-dark: #146c43;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --white: #ffffff;
+}
+
+/* الخطوط العربية */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&display=swap');
+
+/* الإعدادات العامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    direction: rtl;
+    text-align: right;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+/* إعدادات عامة للنصوص */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.text-primary { color: var(--primary-color) !important; }
+.text-secondary { color: var(--secondary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.bg-light { background-color: var(--light-color) !important; }
+
+/* Header & Navigation */
+.navbar-brand {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Cards */
+.event-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.event-card img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.event-card .card-body {
+    padding: 1.5rem;
+}
+
+.event-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 25px;
+    padding: 0.7rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Categories */
+.category-badges .badge {
+    margin: 0.25rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-badges .badge:hover {
+    transform: scale(1.05);
+}
+
+.badge-culture { background-color: var(--warning-color); color: var(--dark-color); }
+.badge-sports { background-color: var(--success-color); }
+.badge-music { background-color: var(--info-color); color: var(--dark-color); }
+.badge-family { background-color: var(--danger-color); }
+.badge-all { background-color: var(--primary-color); }
+
+/* Slider */
+.events-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    min-width: 100%;
+    flex: 0 0 auto;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-controls:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.slider-prev { left: 10px; }
+.slider-next { right: 10px; }
+
+/* Search and Filter */
+.search-filter-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid var(--light-color);
+    padding: 0.7rem 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+}
+
+footer h5 {
+    color: var(--primary-light);
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-light);
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .event-card img {
+        height: 150px;
+    }
+    
+    .slider-controls {
+        display: none;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .category-badges .badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contact Form Animations */
+.form-floating {
+    position: relative;
+}
+
+.form-floating label {
+    transition: all 0.3s ease;
+}
+
+/* Event Detail Page Styles */
+.event-detail-header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23cfe2ff" width="1200" height="400"/></svg>');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 0;
+}
+
+.event-gallery img {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.event-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Loading Animations */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(13, 110, 253, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
