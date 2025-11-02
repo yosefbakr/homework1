@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جميع الفعاليات - دليل فعاليات دمشق</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="تصفح جميع الفعاليات المتاحة في دمشق مع إمكانية الفلترة والبحث">
+    <meta name="keywords" content="فعاليات دمشق، بحث فعاليات، فلترة، ثقافة، رياضة، موسيقى">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <div class="container">
+                <!-- Brand/Logo -->
+               <a class="navbar-brand d-flex align-items-center" href="index.html">
+  <img src="assets/images/logo.png" alt="شعار دليل فعاليات دمشق" height="40" class="me-2">
+  دليل فعاليات دمشق
+</a>                
+                <!-- Toggle button for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="events.html">الفعاليات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">عن الدليل</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">اتصل بنا</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main style="padding-top: 100px;">
+        <!-- Page Header -->
+        <section class="bg-primary text-white py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-5 fw-bold mb-3">
+                            <i class="fas fa-list me-3"></i>
+                            جميع الفعاليات
+                        </h1>
+                        <p class="lead">اكتشف جميع الفعاليات المتاحة في دمشق واستخدم أدوات البحث والفلترة للعثور على ما يناسبك</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <section class="container my-5">
+            <div class="search-filter-section">
+                <div class="row g-3">
+                    <!-- Search Input -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="search-input" placeholder="ابحث عن فعالية...">
+                            <label for="search-input">
+                                <i class="fas fa-search me-2"></i>ابحث عن فعالية...
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Date Filter -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="date-filter">
+                            <label for="date-filter">
+                                <i class="fas fa-calendar me-2"></i>التاريخ
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Location Filter -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="location-filter">
+                                <option value="">جميع المواقع</option>
+                                <option value="دار الأوبرا">دار الأوبرا السورية</option>
+                                <option value="ملعب تشرين">ملعب تشرين</option>
+                                <option value="مسرح القباني">مسرح القباني</option>
+                                <option value="حديقة تشرين">حديقة تشرين</option>
+                                <option value="معرض دمشق">معرض دمشق الدولي</option>
+                                <option value="مركز المؤتمرات">مركز المؤتمرات</option>
+                                <option value="المسرح الوطني">المسرح الوطني</option>
+                                <option value="صالة الشعب">صالة الشعب الرياضية</option>
+                                <option value="قاعة الأسد">قاعة الأسد للثقافة والفنون</option>
+                                <option value="حديقة الجلاء">حديقة الجلاء</option>
+                            </select>
+                            <label for="location-filter">
+                                <i class="fas fa-map-marker-alt me-2"></i>الموقع
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Clear Filters Button -->
+                    <div class="col-lg-2 col-md-6">
+                        <button class="btn btn-outline-secondary w-100 h-100" onclick="clearAllFilters()">
+                            <i class="fas fa-times me-2"></i>مسح الفلاتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Category Filters -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h6 class="mb-3">تصفية حسب التصنيف:</h6>
+                        <div class="category-badges">
+                            <span class="badge badge-all category-badge active" data-category="الكل">
+                                <i class="fas fa-list me-1"></i>جميع الفعاليات
+                            </span>
+                            <span class="badge badge-culture category-badge" data-category="ثقافة">
+                                <i class="fas fa-book me-1"></i>ثقافة
+                            </span>
+                            <span class="badge badge-sports category-badge" data-category="رياضة">
+                                <i class="fas fa-football-ball me-1"></i>رياضة
+                            </span>
+                            <span class="badge badge-music category-badge" data-category="موسيقى">
+                                <i class="fas fa-music me-1"></i>موسيقى
+                            </span>
+                            <span class="badge badge-family category-badge" data-category="عائلي">
+                                <i class="fas fa-users me-1"></i>عائلي
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Summary -->
+        <section class="container mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">النتائج</h4>
+                            <small class="text-muted" id="results-count">عرض جميع الفعاليات</small>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-sort me-2"></i>ترتيب حسب
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onclick="sortEvents('date')">التاريخ</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="sortEvents('title')">العنوان</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="sortEvents('category')">التصنيف</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Grid -->
+        <section class="container">
+            <div class="row" id="events-container">
+                <!-- Events will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Pagination -->
+        <section class="container my-5">
+            <nav aria-label="صفحات الفعاليات">
+                <ul class="pagination justify-content-center" id="pagination">
+                    <!-- Pagination will be generated by JavaScript if needed -->
+                </ul>
+            </nav>
+        </section>
+
+        <!-- No Results Message -->
+        <section class="container my-5" id="no-results" style="display: none;">
+            <div class="row">
+                <div class="col-lg-6 mx-auto text-center">
+                    <div class="card border-0">
+                        <div class="card-body p-5">
+                            <i class="fas fa-search fa-4x text-muted mb-4"></i>
+                            <h4>لم نعثر على نتائج</h4>
+                            <p class="text-muted">جرب تغيير معايير البحث أو إزالة بعض الفلاتر</p>
+                            <button class="btn btn-primary" onclick="clearAllFilters()">
+                                <i class="fas fa-refresh me-2"></i>إعادة تعيين البحث
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white">
+        <div class="container">
+            <div class="row py-4">
+                <!-- About Section -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <h5>
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        دليل فعاليات دمشق
+                    </h5>
+                    <p>منصتك الأولى لاكتشاف أهم وأحدث الفعاليات الثقافية والرياضية والفنية في العاصمة دمشق</p>
+                </div>
+                
+
+                
+                <!-- Contact Info -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <h5>معلومات التواصل</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-envelope me-2"></i>
+                            baraa123@gmail.com
+                        </li>
+                        <li>
+                            <i class="fas fa-phone me-2"></i>
+                            +963-11-1234567
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            دمشق، سوريا
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links mt-3">
+                        <a href="#" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="إنستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-12">
+                    <hr class="my-3">
+                    <div class="text-center">
+                        <p class="mb-0">
+                            © 2024 دليل فعاليات دمشق. جميع الحقوق محفوظة
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Additional JavaScript for Events Page -->
+    <script>
+        // Clear all filters function
+        function clearAllFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('date-filter').value = '';
+            document.getElementById('location-filter').value = '';
+            
+            // Reset category filter
+            document.querySelectorAll('.category-badge').forEach(badge => {
+                badge.classList.remove('active');
+            });
+            document.querySelector('[data-category="الكل"]').classList.add('active');
+            
+            // Reset and display all events
+            currentCategory = 'الكل';
+            displayEvents(eventsData);
+            updateResultsCount(eventsData.length);
+        }
+        
+        // Sort events function
+        function sortEvents(criteria) {
+            let sortedEvents = [...filteredEvents];
+            
+            switch(criteria) {
+                case 'date':
+                    sortedEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+                    break;
+                case 'title':
+                    sortedEvents.sort((a, b) => a.title.localeCompare(b.title));
+                    break;
+                case 'category':
+                    sortedEvents.sort((a, b) => a.category.localeCompare(b.category));
+                    break;
+            }
+            
+            displayEvents(sortedEvents);
+        }
+        
+        // Update results count
+        function updateResultsCount(count) {
+            const resultsCount = document.getElementById('results-count');
+            if (count === 0) {
+                resultsCount.textContent = 'لم يتم العثور على نتائج';
+            } else if (count === 1) {
+                resultsCount.textContent = 'تم العثور على فعالية واحدة';
+            } else {
+                resultsCount.textContent = `تم العثور على ${count} فعالية`;
+            }
+        }
+        
+        // Override the displayEvents function to include results count
+        const originalDisplayEvents = displayEvents;
+        displayEvents = function(events) {
+            originalDisplayEvents(events);
+            updateResultsCount(events.length);
+            
+            // Show/hide no results message
+            const noResults = document.getElementById('no-results');
+            const eventsContainer = document.getElementById('events-container');
+            
+            if (events.length === 0) {
+                noResults.style.display = 'block';
+                eventsContainer.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                eventsContainer.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>
